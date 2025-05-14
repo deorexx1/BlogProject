@@ -1,10 +1,10 @@
 body {
-    background-image:url(/img/photo1.jpg) ;
+    background-image:url(/BlogProject/img/photo1.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.register {
+.login {
     width: 80%; 
     max-width: 400px; 
     margin:50px auto;
@@ -17,7 +17,7 @@ body {
     box-sizing: border-box; 
 
 }
-
+ 
 h1 {
     font-family: "Playwrite AU SA", cursive;
     text-align: center;
@@ -26,12 +26,12 @@ h1 {
 }
 
 
-.regis-form {
+.login-form {
     width: 300px;
     margin: 10px auto;
 }
 
-.register-field-icon {
+.login-field-icon {
     display: inline-block;
     width: 85px;
     text-align: left;
@@ -72,4 +72,4 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.3); 
-} 
+}
