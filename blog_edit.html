@@ -36,7 +36,7 @@
                             <input type="text" placeholder="タイトルをいれてください" name="blogTitle">
                         </div>
                         <div class="register-section-details_flex">
-                            <label >日付</label>
+                            <label>日付</label>
                             <input type="date" name="time_cho">
                         </div>
                         <div class="register-section-details_flex">
@@ -49,19 +49,17 @@
                         </div>
 
                     </div>
-                 
+                </form>
+                <div class="register-section-details_flex">
+                    <input type="hidden" name="blogId">
+                    <button class="register">編集</button>
+                    <button class="register" id="back" onclick="history.back();" type="button">戻る</button>
+                </div>
+                <form th:action="" method="post">
                     <div class="register-section-details_flex">
-                        <input type="hidden" name="blogId">
-                        <button class="register">編集</button>
-                        <button class="register"  id="back" onclick="history.back();" type="button">戻る</button>
+                        <input type="hidden" name="productId" th:value="${products.productId}">
+                        <button class="register" id="delete">削除</button>
                     </div>
-                   <form th:action="" method="post">
-					<div class="register-section-details_flex">
-						<input type="hidden" name="productId" th:value="${products.productId}">
-						<button class="register" id="delete">削除</button>
-					</div>
-                    
-				</form>
                 </form>
             </section>
         </div>

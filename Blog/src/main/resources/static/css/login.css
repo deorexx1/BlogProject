@@ -1,0 +1,75 @@
+body {
+    background-image:url(/BlogProject/img/photo1.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login {
+    width: 80%; 
+    max-width: 400px; 
+    margin:50px auto;
+    padding: 40px 20px; 
+    min-height: 400px; 
+    border: 1px solid white(0, 0, 255, 0.3); 
+    background-color: white(0, 0, 255, 0.3); 
+    border-radius: 10px; 
+    text-align: center;
+    box-sizing: border-box; 
+
+}
+ 
+h1 {
+    font-family: "Playwrite AU SA", cursive;
+    text-align: center;
+    color: white;
+    font-size:90px;
+}
+
+
+.login-form {
+    width: 300px;
+    margin: 10px auto;
+}
+
+.login-field-icon {
+    display: inline-block;
+    width: 85px;
+    text-align: left;
+}
+
+.login-field {
+    width: 200px;
+    height: 30px;
+    background-color: rgb(242, 242, 242);
+    border-radius: 3px;
+    text-align: center;
+    border: none;
+}
+
+
+
+.btn {
+    width: 300px;
+    height: 40px;
+    padding: 5px 0;
+    color: black;
+    background-color: rgba(230, 194, 194,0.5);
+    border: 2px solid transparent;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius: 3px;  
+    font-size: 20px;
+}
+
+.register-link{
+    font-size: 20px;
+    color: rgb(231, 229, 229,0.8);
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3); 
+}
