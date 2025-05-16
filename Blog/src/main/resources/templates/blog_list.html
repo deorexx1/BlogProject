@@ -2,48 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOG_LIST</title>
-    <link rel="stylesheet" href="/BlogProject/css/blog_edit.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BLOG_LIST</title>
+	<link rel="stylesheet" th:href="@{/css/blog_edit.css}">
 
 </head>
 
 <body>
-    <header>
-        <nav class="header">
-            <div class="header-inner">
-                <div class="logo">
-                    <a href=""><img src="/BlogProject/img/LOGO.jpeg"></a>
-                </div>
-                <ul class="header-list">
-                    <li class="header-list-item" th:text=""></li>
-                    <li class="header-list-item"><a th:href="">ブログ一覧</a></li>
-                    <li class="header-list-item"><a th:href="">ログアウト</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
+	<header>
+		<nav class="header">
+			<div class="header-inner">
+				<div class="logo">
+					<a href=""><img src="/img/LOGO.jpeg"></a>
+				</div>
+				<ul class="header-list">
+					<li class="header-list-item" th:text="${adminName}"></li>
+					<li class="header-list-item"><a href="">ブログ一覧</a></li>
+					<li class="header-list-item"><a th:href="@{/admin/logout}">ログアウト</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
 		<article>
 			<h2>ブログ一覧</h2>
 			<section class="register-item">
 				<div class="all-view-register__button">
-					<a th:href="@{/product/register}" class="btn btn--orange btn--radius">ブログ登録</a>
+					<a th:href="@{/blog/register}" class="btn btn--orange btn--radius">ブログ登録</a>
 				</div>
 			</section>
 			<ul class="blog">
 				<li th:each="blog:${blogList}">
-					
+					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+						<p th:text="${blog.blogName}"></p><br>
+						
 				</li>
-				
+
 			</ul>
-			
+
 		</article>
-    <footer>
-        <small>Copyright &copy; GAKU All rights reserved</small>
-    </footer>
+		<footer>
+			<small>Copyright &copy; GAKU All rights reserved</small>
+		</footer>
 
 </body>
 

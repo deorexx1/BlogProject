@@ -11,18 +11,16 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 
-	// 保存 登録処理
-	public boolean createAdmin(String adminName, String adminEmail, String password) {
-		// メールをDBで検索
-		// メールなければ登録
+	public boolean createAdmin( String adminName,String adminEmail, String password) {
 		if (adminDao.findByAdminEmail(adminEmail) == null) {
-			adminDao.save(new Admin( adminName,adminEmail, password));
+			adminDao.save(new Admin(adminEmail, adminName, password));
 			return true;
 		} else {
 			return false;
 		}
 	}
 
+	
 	// ログイン処理
 	// メールとパスワードなければ
 	public Admin loginCheck(String adminEmail, String password) {
@@ -33,4 +31,5 @@ public class AdminService {
 			return admin;
 		}
 	}
+
 }
