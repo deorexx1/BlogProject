@@ -13,7 +13,7 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 	Blog save(Blog blog);
 
 	// SELECT * FROM blog
-	List<Blog> findAll();
+	List<Blog>findAll();
 	
 	// SELECT * FROM blog WHERE blog_title = ?
 	Blog findByBlogTitle(String blogTitle);

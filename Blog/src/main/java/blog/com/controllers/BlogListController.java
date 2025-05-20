@@ -23,11 +23,12 @@ public class BlogListController {
 	@GetMapping("/blog/list")
 	public String getBlogList(Model model) {
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
-		if(admin == null) {
+		if (admin == null) {
 			return "redirect:/admin/login";
-		}else {
-			List<Blog>blogList = blogService.selectAllBlog(null);
-			model.addAttribute("adminName",admin.getAdminName());
+		} else {
+			List<Blog> blogList = blogService.selectAllBlog(admin.getAdminId());
+			model.addAttribute("adminName", admin.getAdminName());
+			model.addAttribute("blogList", blogList);
 			return "blog_list.html";
 		}
 	}

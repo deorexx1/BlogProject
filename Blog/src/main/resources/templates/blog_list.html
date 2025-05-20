@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>BLOG_LIST</title>
-	<link rel="stylesheet" th:href="@{/css/blog_edit.css}">
+	<link rel="stylesheet" th:href="@{/css/blog_list.css}">
 
 </head>
 
@@ -15,11 +15,11 @@
 		<nav class="header">
 			<div class="header-inner">
 				<div class="logo">
-					<a href=""><img src="/img/LOGO.jpeg"></a>
+					<a href=""><img src="/img/blog.png"></a>
 				</div>
 				<ul class="header-list">
 					<li class="header-list-item" th:text="${adminName}"></li>
-					<li class="header-list-item"><a href="">ブログ一覧</a></li>
+					<li class="header-list-item"><a th:href="@{/blog/list}">ブログ一覧</a></li>
 					<li class="header-list-item"><a th:href="@{/admin/logout}">ログアウト</a></li>
 				</ul>
 			</div>
@@ -29,18 +29,17 @@
 		<article>
 			<h2>ブログ一覧</h2>
 			<section class="register-item">
-				<div class="all-view-register__button">
+				<div class="all-view-register_button">
 					<a th:href="@{/blog/register}" class="btn btn--orange btn--radius">ブログ登録</a>
 				</div>
 			</section>
 			<ul class="blog">
 				<li th:each="blog:${blogList}">
 					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
-						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
-						<p th:text="${blog.blogName}"></p><br>
-						
+						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImg})}" alt="">
+						<p th:text="${blog.blogTitle}"></p><br>
+						</a>
 				</li>
-
 			</ul>
 
 		</article>

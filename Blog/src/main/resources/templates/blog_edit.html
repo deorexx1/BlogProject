@@ -15,12 +15,12 @@
 		<nav class="header">
 			<div class="header-inner">
 				<div class="logo">
-					<a href=""><img src="/BlogProject/img/LOGO.jpeg"></a>
+					<a href=""><img src="/img/LOGO.jpeg"></a>
 				</div>
 				<ul class="header-list">
-					<li class="header-list-item" th:text=""></li>
-					<li class="header-list-item"><a th:href="">ブログ一覧</a></li>
-					<li class="header-list-item"><a th:href="">ログアウト</a></li>
+					<li class="header-list-item" th:text="${adminName}"></li>
+					<li class="header-list-item"><a th:href="@{/blog/list}">ブログ一覧</a></li>
+					<li class="header-list-item"><a th:href="@{/admin/login}">ログアウト</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -29,36 +29,36 @@
 		<div class="main-inner">
 			<section class="register-section">
 				<h2>ブログ編集</h2>
-				<form th:action="" method="post">
+				<form th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data">
 					<div class="register-section-details">
 						<div class="register-section-details_flex">
 							<div>ブログタイトル</div>
-							<input type="text" placeholder="タイトルをいれてください" name="blogTitle">
+							<input type="text" placeholder="タイトルをいれてください" name="blogTitle" th:value="${blog.blogTitle}">
 						</div>
 						<div class="register-section-details_flex">
 							<label>日付</label>
-							<input type="date" name="time_cho">
+							<input type="datetime-local" name="createdAt" required>
 						</div>
 						<div class="register-section-details_flex">
 							<div>ブログ画像</div>
-							<input type="file" name="blogImage">
+							<input type="file" name="blogImg">
 						</div>
 						<div class="register-section-details_flex">
 							<div>ブログ内容</div>
-							<textarea name="blogContent" placeholder="内容をいれてください" ></textarea>
+							<textarea name="blogContents" placeholder="内容をいれてください" th:text="${blog.blogContents}"></textarea>
 						</div>
 
 					</div>
 
 					<div class="register-section-details_flex">
-						<input type="hidden" name="blogId">
-						<button class="register">編集</button>
+						<input type="hidden" name="blogId" th:value="${blog.blogId}">
+						<button class="register">更新</button>
 						<button class="register" id="back" onclick="history.back();" type="button">戻る</button>
 					</div>
 				</form>
-				<form th:action="" method="post">
+				<form th:action="@{/blog/delete}" method="post">
 					<div class="register-section-details_flex">
-						<input type="hidden" name="productId" th:value="${products.productId}">
+						<input type="hidden" name="blogId" th:value="${blog.blogId}">
 						<button class="register" id="delete">削除</button>
 					</div>
 				</form>

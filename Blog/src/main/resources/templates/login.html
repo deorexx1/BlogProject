@@ -2,41 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LOGIN</title>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <form class="login" method="post" th:action="@{/admin/login/process}">
-        <header>
-            <h1>Login</h1>
-        </header>
+	<form class="login" method="post" th:action="@{/admin/login/process}">
+		<header>
+			<h1>Login</h1>
+		</header>
 
-       
-        <div class="login-form">
-            <label class="login-field-icon" for="login-email" >Email</label>
-            <input type="text" class="login-field" value="" placeholder="メールを入力してください" id="login_email" name="adminEmail">
-        </div>
-        <div class="login-form">
-            <label class="login-field-icon" for="login-pass">Password</label>
-            <input type="password" class="login-field" value="" placeholder="パスワードを入力してください" id="login_pass" name="password">
-        </div>
-        <div class="login-form">
-            <button class="btn">登録</button>
-        </div>
-        <div class="login-form-link">
-            <a href="/admin/register" class="register-link">登録はこちら</a>
-        </div>
-    </form>
 
-    <footer>
-        <small>Copyright &copy; GAKU All rights reserved</small>
-    </footer>
+		<div class="login-form">
+			<label class="login-field-icon" for="login-email">Email</label>
+			<input type="text" class="login-field" value="" placeholder="メールを入力してください" id="login_email"
+				name="adminEmail">
+		</div>
+		<div class="login-form">
+			<label class="login-field-icon" for="login-pass">Password</label>
+			<input type="password" class="login-field" value="" placeholder="パスワードを入力してください" id="login_pass"
+				name="password">
+		</div>
+		<div class="login-form">
+			<button class="btn">ログイン</button>
+		</div>
+		<div class="login-form-link">
+			<a href="/admin/register" class="register-link">登録はこちら</a>
+		</div>
+	</form>
+
+	<footer>
+		<small>Copyright &copy; GAKU All rights reserved</small>
+	</footer>
 </body>
- 
+
 </html>

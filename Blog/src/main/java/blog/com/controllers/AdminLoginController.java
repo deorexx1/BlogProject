@@ -35,11 +35,8 @@ public class AdminLoginController {
 			return "login.html";
 		} else {
 			session.setAttribute("loginAdminInfo", admin);
-			session.setAttribute("adminName", admin.getAdminName()); 
-			return "redirect:/blog/list";
+			session.setAttribute("adminName", admin.getAdminName());
+			return "welcome.html";
 		}
-
 	}
-
 }
-
