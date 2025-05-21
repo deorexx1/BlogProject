@@ -35,10 +35,10 @@
 			</section>
 			<ul class="blog">
 				<li th:each="blog:${blogList}">
-					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+					<a th:href="@{/blog/contents/{blogId}(blogId=${blog.blogId})}">
 						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImg})}" alt="">
 						<p th:text="${blog.blogTitle}"></p><br>
-						</a>
+					</a>
 				</li>
 			</ul>
 

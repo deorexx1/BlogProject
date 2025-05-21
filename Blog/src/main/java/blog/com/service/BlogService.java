@@ -24,11 +24,7 @@ public class BlogService {
 	}
 
 	// ブログ登録処理チェック
-	public boolean creatBlog(String blogTitle, 
-			String blogContents, 
-			Timestamp createdAt, 
-			String blogImg, 
-			Long adminId) {
+	public boolean creatBlog(String blogTitle, String blogContents, Timestamp createdAt, String blogImg, Long adminId) {
 		if (blogDao.findByBlogTitle(blogTitle) == null) {
 			blogDao.save(new Blog(blogTitle, blogContents, createdAt, blogImg, adminId));
 			return true;
@@ -37,7 +33,7 @@ public class BlogService {
 		}
 	}
 
-    //編集画面を表示するときのチェック
+	// 編集画面を表示するときのチェック
 	public Blog blogEditCheck(Long blogId) {
 		if (blogId == null) {
 			return null;
@@ -46,15 +42,12 @@ public class BlogService {
 		}
 
 	}
-    //更新処理のチェック
-	public boolean blogUpdate(Long blogId,
-			String blogTitle, 
-			String blogContents, 
-			Timestamp createdAt, 
-			String blogImg) {
-		if(blogId ==null) {
+
+	// 更新処理のチェック
+	public boolean blogUpdate(Long blogId, String blogTitle, String blogContents, Timestamp createdAt, String blogImg) {
+		if (blogId == null) {
 			return false;
-		}else {
+		} else {
 			Blog blog = blogDao.findByBlogId(blogId);
 			blog.setBlogContents(blogContents);
 			blog.setBlogImg(blogImg);
@@ -64,12 +57,13 @@ public class BlogService {
 			return true;
 		}
 	}
-    //削除処理
+
+	// 削除処理
 	@Transactional
 	public boolean deleteBlog(Long blogId) {
 		if (blogId == null) {
 			return false;
-		}else {
+		} else {
 			blogDao.deleteByBlogId(blogId);
 			return true;
 		}

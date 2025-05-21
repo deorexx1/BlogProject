@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BLOG_CONTENTS</title>
+	<link rel="stylesheet" th:href="@{/css/blog_contents.css}">
+
+</head>
+
+<body>
+	<header>
+		<nav class="header">
+			<div class="header-inner">
+				<div class="logo">
+					<a href="/"><img src="/img/blog.png" alt=""></a>
+				</div>
+				<ul class="header-list">
+					<li class="header-list-item" th:text="${adminName}"></li>
+					<li class="header-list-item"><a th:href="@{/blog/list}">ブログ一覧</a></li>
+					<li class="header-list-item"><a th:href="@{/admin/logout}">ログアウト</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<article>
+			<h2 th:text="${blog.blogTitle}"></h2>
+			<p style="text-align: center;">更新日：<span th:text="${#dates.format(blog.createdAt, 'yyyy年MM月dd日 HH:mm')}"></span></p>
+			<div class="blog-image">
+				<img th:src="@{/blog-img/{img}(img=${blog.blogImg})}" th:alt="${blog.blogTitle}" class="img-fluid">
+			</div>
+			<div class="text" style="text-align: center;">
+				<p  th:text="${blog.blogContents}"></p>
+			</div>
+			<section class="register-item">
+				<div>
+					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}" class="btn btn--orange">編集</a>
+					<button class="btn btn--orange" style="background-color: #6c757d;"  onclick="history.back();">戻る</button>
+				</div>
+			</section>
+		</article>
+	</main>
+
+	<footer>
+		<small>Copyright &copy; GAKU All rights reserved</small>
+	</footer>
+</body>
+
+</html>

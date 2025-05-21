@@ -32,6 +32,7 @@ public class BlogEditController {
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable Long blogId, Model model) {
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
+		//もしユーザーログイン情報がなければ、ログイン画面へ
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
@@ -51,7 +52,8 @@ public class BlogEditController {
 //更新処理
 	@PostMapping("/blog/edit/process")
 	public String blogUpdate(@RequestParam Long blogId, @RequestParam String blogTitle,
-			@RequestParam String blogContents, @RequestParam String createdAt, @RequestParam MultipartFile blogImg,
+			@RequestParam String blogContents,
+			@RequestParam String createdAt, @RequestParam MultipartFile blogImg,
 			Model model) {
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		if (admin == null) {
@@ -71,6 +73,7 @@ public class BlogEditController {
 
 			return "blog_edit.html";
 		}
+		//画像を上書き
 		try {
 			Files.copy(blogImg.getInputStream(), Path.of("src/main/resources/static/blog-img/" + fileName));
 		} catch (IOException e) {

@@ -14,10 +14,11 @@ public class BlogDeleteController {
 	private BlogService blogService;
 	@Autowired
 	private HttpSession session;
-
+   //削除処理
 	@PostMapping("/blog/delete")
 	public String blogDelete(Long blogId) {
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
+		//もしユーザーログイン情報がなければ、ログイン画面へ
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
