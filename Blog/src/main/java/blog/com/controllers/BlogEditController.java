@@ -25,14 +25,16 @@ import jakarta.servlet.http.HttpSession;
 public class BlogEditController {
 	@Autowired
 	private BlogService blogService;
+	// Sessionを宣言
 	@Autowired
 	private HttpSession session;
 
 	// 編集画面表示
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable Long blogId, Model model) {
+		// sessionからログインしている情報を格納
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
-		//もしユーザーログイン情報がなければ、ログイン画面へ
+		// もしユーザーログイン情報がなければ、ログイン画面へ
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
@@ -49,11 +51,10 @@ public class BlogEditController {
 
 	}
 
-//更新処理
+     //更新処理
 	@PostMapping("/blog/edit/process")
 	public String blogUpdate(@RequestParam Long blogId, @RequestParam String blogTitle,
-			@RequestParam String blogContents,
-			@RequestParam String createdAt, @RequestParam MultipartFile blogImg,
+			@RequestParam String blogContents, @RequestParam String createdAt, @RequestParam MultipartFile blogImg,
 			Model model) {
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		if (admin == null) {
@@ -73,16 +74,15 @@ public class BlogEditController {
 
 			return "blog_edit.html";
 		}
-		//画像を上書き
+		// 画像を上書き
 		try {
 			Files.copy(blogImg.getInputStream(), Path.of("src/main/resources/static/blog-img/" + fileName));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "blog_register.html";
 		}
-
+		// 更新する
 		boolean result = blogService.blogUpdate(blogId, blogTitle, blogContents, timestamp, fileName);
-
 		if (result) {
 			return "redirect:/blog/list";
 		} else {

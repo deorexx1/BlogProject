@@ -28,8 +28,9 @@ public class BlogRegisterController {
 	// ブログ画面を表示
 	@GetMapping("/blog/register")
 	public String getBlogRegisterPage(Model model) {
-		// ログイン情報格納
+		// sessionからログインしている情報を格納
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
+		// もしユーザーログイン情報がなければ、ログイン画面へ
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
@@ -37,7 +38,7 @@ public class BlogRegisterController {
 			return "blog_register.html";
 		}
 	}
-
+	//登録処理
 	@PostMapping("/blog/register/process")
 	public String blogRegisterProcess(@RequestParam String blogTitle, @RequestParam String blogContents,
 			@RequestParam String createdAt, @RequestParam MultipartFile blogImg) {
@@ -49,6 +50,7 @@ public class BlogRegisterController {
 
 		// createdAt を Timestamp に変換
 		Timestamp timestamp = null;
+		// 現在時刻を "yyyy-MM-dd-HH-mm-ss-" 形式で取得し
 		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
 				+ blogImg.getOriginalFilename();
 		try {

@@ -13,32 +13,35 @@
 
 
 <body>
-	
-	<form class="register" th:action="@{/admin/register/process}" method="post">
-		<header>
-			<h1>Register</h1>
-		</header>
+	<main>
+		<form class="register" th:action="@{/admin/register/process}" method="post">
+			<header>
+				<h1>Register</h1>
+			</header>
 
-		<div class="regis-form">
-			<label class="register-field-icon" for="login-name">Name</label>
-			<input type="text" class="login-field" value="" placeholder="名前を入力してください" id="admin_name" name="adminName">
-		</div>
-		<div class="regis-form">
-			<label class="register-field-icon" for="login-email">Email</label>
-			<input type="text" class="login-field" value="" placeholder="メールを入力してください" id="admin_email" name="adminEmail">
-		</div>
-		<div class="regis-form">
-			<label class="register-field-icon" for="login-pass">Password</label>
-			<input type="password" class="login-field" value="" placeholder="パスワードを入力してください" id="admin_pass" name="password">
-		</div>
-		<div class="regis-form">
-			<button class="btn">登録</button>
-		</div>
-		<div class="regis-form-link">
-			<a href="/admin/login" class="register-link">ログインはこちら</a>
-		</div>
-	</form>
-
+			<div class="regis-form">
+				<label class="register-field-icon" for="login-name">Name</label>
+				<input type="text" class="login-field" value="" placeholder="名前を入力してください" id="admin_name"
+					name="adminName">
+			</div>
+			<div class="regis-form">
+				<label class="register-field-icon" for="login-email">Email</label>
+				<input type="text" class="login-field" value="" placeholder="メールを入力してください" id="admin_email"
+					name="adminEmail">
+			</div>
+			<div class="regis-form">
+				<label class="register-field-icon" for="login-pass">Password</label>
+				<input type="password" class="login-field" value="" placeholder="パスワードを入力してください" id="admin_pass"
+					name="password">
+			</div>
+			<div class="regis-form">
+				<button class="btn">登録</button>
+			</div>
+			<div class="regis-form-link">
+				<a href="/admin/login" class="register-link">ログインはこちら</a>
+			</div>
+		</form>
+	</main>
 	<footer>
 		<small>Copyright &copy; GAKU All rights reserved</small>
 	</footer>

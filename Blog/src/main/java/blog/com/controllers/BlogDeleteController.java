@@ -22,6 +22,7 @@ public class BlogDeleteController {
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
+			//削除する
 			if (blogService.deleteBlog(blogId)) {
 				return "redirect:/blog/list";
 			} else {

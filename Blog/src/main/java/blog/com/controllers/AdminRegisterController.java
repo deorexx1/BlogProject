@@ -13,7 +13,7 @@ public class AdminRegisterController {
 	@Autowired
 	private AdminService adminService;
 
-//登録画面を表示
+    //登録画面を表示
 	@GetMapping("/admin/register")
 	public String getAdminRegisterPage() {
 		return "register.html";
@@ -21,6 +21,7 @@ public class AdminRegisterController {
 
 	// 登録処理
 	@PostMapping("/admin/register/process")
+	//createAdmin メソッドを使ってadminを登録
 	public String adminRegisterProcess(@RequestParam String adminName, @RequestParam String adminEmail,
 			@RequestParam String password) {
 		if (adminService.createAdmin(adminName, adminEmail, password)) {

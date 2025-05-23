@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 public class AdminLoginController {
 	@Autowired
 	private AdminService adminService;
-
+	//Sessionを宣言
 	@Autowired
 	private HttpSession session;
 
@@ -30,10 +30,11 @@ public class AdminLoginController {
 	public String adminLoginProcess(@RequestParam String adminEmail, @RequestParam String password) {
 
 		Admin admin = adminService.loginCheck(adminEmail, password);
-
+		//もしユーザーログイン情報がなければ、ログイン画面へ
 		if (admin == null) {
 			return "login.html";
 		} else {
+			 // sessionにログイン情報を保存し、welcomeへ
 			session.setAttribute("loginAdminInfo", admin);
 			session.setAttribute("adminName", admin.getAdminName());
 			return "welcome.html";

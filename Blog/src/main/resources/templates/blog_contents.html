@@ -27,8 +27,12 @@
 	</header>
 	<main>
 		<article>
+			<div>
 			<h2 th:text="${blog.blogTitle}"></h2>
+			</div>
+			<div>
 			<p style="text-align: center;">更新日：<span th:text="${#dates.format(blog.createdAt, 'yyyy年MM月dd日 HH:mm')}"></span></p>
+			</div>
 			<div class="blog-image">
 				<img th:src="@{/blog-img/{img}(img=${blog.blogImg})}" th:alt="${blog.blogTitle}" class="img-fluid">
 			</div>
